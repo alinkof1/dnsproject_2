@@ -140,7 +140,7 @@ def filter_duplicates(dns_host_list, possible_host_locs, subhosts_count, hosts_t
 #first, indexes through known host locations, then prints the host, dns requests and timestamp at that location
 #then, prints each "subhost" dns request made for the original query
 def print_to_file(dns_host_list, possible_host_locs, subhosts_count, hosts_timestamps, nullCountArray):
-	report = open("report.txt", 'w')
+	report = open("report_with_blocking.txt", 'w')
 	for i,host_loc in enumerate(possible_host_locs):
 		report.write("%s: %s times: %s\n" % (dns_host_list[host_loc], (subhosts_count[i] - nullCountArray[i]), hosts_timestamps[i]))
 		j=0
@@ -153,7 +153,7 @@ def print_to_file(dns_host_list, possible_host_locs, subhosts_count, hosts_times
 #-------------------------Start main program------------------------------#
 
 #open dnslog.txt to read in the info and store to local variable
-file_in = open('dnslog.txt', 'r')
+file_in = open('dnslog_with_blocking.txt', 'r')
 dnslog = file_in.read()
 file_in.close()
 
